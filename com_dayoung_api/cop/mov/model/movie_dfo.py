@@ -20,7 +20,7 @@ from sqlalchemy import func
 
 from com_dayoung_api.ext.db import db, openSession
 
-class RecoMovieDf:
+class MovieDf:
     '''
     kmdb_naver_search\saved_data\naver_movie_search_merge.csv
     resources\data\movie_lens\movies_metadata.csv
@@ -75,7 +75,7 @@ class RecoMovieDf:
         
         print('***** 무비 렌즈 UI용 DF가공 완료 *****')
 
-        return merge_movie_lens_kmdb_naver_df
+        return merge_movie_lens_kmdb_naver_df.head(50)
         # print(movie_lens_meta_df)
         # print(movie_lens_keyword_df)
         # print(movie_lens_credits_df)
@@ -674,7 +674,7 @@ class RecoMovieDf:
         return final_merge_df
 
 # if __name__ == "__main__":
-#     service = RecoMovieDf()
+#     service = MovieDf()
 #     service.hook()
 
     print('***** 무비 렌즈 서비스 완료 *****')

@@ -1,6 +1,6 @@
 import os
 import pandas as pd
-from com_dayoung_api.cmm.utl.file_helper import FileReader
+from com_dayoung_api.cmm.util.file_helper import FileReader
 
 class UserDfo:
     """
@@ -17,15 +17,20 @@ class UserDfo:
         self.fileReader = FileReader()
         self.path = os.path.abspath("")
 
-
     def hook(self):
         """
             Creates new model,
 
             for now it simply creates new_model which gets data from user.csv
         """
-        data = self.new_model()
-        print(data)
+        usr_df = self.new_model()
+        print(usr_df)
+        mycolumns = {
+            'user_id':'usr_id'
+        }
+        sort_df = usr_df.rename(columns=mycolumns)
+        data = sort_df
+        
         return data
 
     def new_model(self) -> object:        
